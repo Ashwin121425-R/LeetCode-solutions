@@ -1,0 +1,21 @@
+python code:
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        p=strs[0]
+        pl=len(p)
+        for s in strs[1:]:
+            while(p!=s[0:pl]):
+                pl-=1
+                if(pl==0):
+                    return ""
+                p=p[0:pl]
+        return p
+
+
+first we are assigning the first word in "P" ad the length of word p i "PL".
+In the first loop we will be checking p and the 1st word i the list. since they are different they go inside the loop and reduce the length to pl-1.
+then the loop continue till the given both the words are the same. Aafter that it goes to the next(incremented word) for loop with the remaining in the p ad pl.
+the it goes the same with the next word i the list and contiues till both are same, then it returs the required output.
+
+Space complexity : O(len(strs[0]))
+Time complexity(worst case) : O(m∗n)
