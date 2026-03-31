@@ -1,0 +1,26 @@
+JAVA:
+import java.util.*;
+class Solution {
+    public int romanToInt(String s) {
+       Map<Character,Integer>map=Map.of('I',1,'V',5,'X',10,'L',50,'C',100,'D',500,'M',1000);
+       int r=0;
+       for(int i=0;i<s.length();i++){
+        int cu=map.get(s.charAt(i));
+        int n=(i+1<s.length())?map.get(s.charAt(i+1)):0;
+        if(cu<n){
+            r-=cu;
+        }
+        else{
+            r+=cu;
+        }
+       }
+       return r;
+    }
+}
+
+how the code works:
+first, we go thru the first 2 elements of the given roman number. 
+we check if they are in ascending order(to add numbers) or descending order(to subract numbers),
+so that with respect to it we can convert in into the required number.
+Then we use the same process with the next two varialbes(roman numbers).
+After the last roman number, we can print the required number.
